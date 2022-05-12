@@ -1,0 +1,251 @@
+{% extends "all-bases/main-base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'about/css/pricing.css' %}"/>
+
+{% endblock %}
+
+{% block title %}
+Types of Companies
+{% endblock %}
+
+
+
+
+
+{% block body %}
+    {% include "all-bases/fixed-nav-strip.html" %}
+        <div class="container company-types-container mt-4">
+            <h1>Types of companies</h1>
+            <span>
+                When registering a company in Zimbabwe the first step is to figure out what type of a company you would want to incorporate under.
+                You have to decide between a Private Limited Company (PLC),  Private Business Corporation (PBC) or co-operative company (co-op).
+                It is important to understand the differences between these three a PBC (Private Business Corporation),
+                a Private Limited Company (Pvt Ltd) and a co-operative company and the table below provides some information in this regard.<br>
+                <span>
+                    <strong>Please note that we strongly advice you seek professional assistance before making your decision.
+                    Our business consultants look forward to assisting you in this regard. Simply contact us using the link below.</strong>
+                </span>
+            </span>
+            <div class="row">
+                <div class="col-4">
+                    <span class="header">Private Business Corporation(PBC)</span><hr>
+                    <ul>
+
+                        <li>Mainly meant for small to medium businesses</li>
+                        <li>Can accommodate sole traders</li>
+                        <li>Has a legal persona of its own apart from its owners</li>
+                        <li>Has perpetual succession</li>
+                        <li>Can have a maximum of 20 directors</li>
+                        <li>Members are the same as shareholders or owners</li>
+                        <li>Companies cannot be shareholders or hold a member’s interest in a PBC, only individuals can be members</li>
+                        <li>Comprised of members</li>
+                        <li>Has an incorporation statement and bylaws</li>
+                        <li>Articles of association are not required</li>
+                        <li>Does not require annual return to be lodged</li>
+                        <li>Has an accounting officer</li>
+                        <li>Annual general meeting not required</li>
+                        <li>Members hold member’s interest</li>
+                        <li>Can purchase a member’s interest</li>
+                        <li>Members are responsible for the day to day management of the PBC</li>
+                        <li>No register of members is required</li>
+                        <li>Offers limited liability to its owners</li>
+                        <li>No financial statements needed</li>
+                        <li>No prohibition on a PBC to provide financial assistance for the acquisition of a member’s interest</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <span class="header">Private Business Corporation(PBC)</span><hr>
+                    <ul>
+                        <li>Mainly meant for medium to large businesses</li>
+                        <li>Only accommodates 2 or more people (Directors)</li>
+                        <li>Has a legal persona of its own apart from its owners</li>
+                        <li>Has perpetual succession</li>
+                        <li>Can have a maximum of 50 directors</li>
+                        <li>Shareholders are owners and can be different from the directors</li>
+                        <li>Both companies and individuals can be shareholders in a PLC</li>
+                        <li>Comprised of directors and shareholders</li>
+                        <li>Has a certificate, memorandum, articles, CR5 and CR6</li>
+                        <li>Registered articles of association</li>
+                        <li>Annual returns are compulsory</li>
+                        <li>Has share capital</li>
+                        <li>Has an auditor</li>
+                        <li>Annual general meeting is required</li>
+                        <li>Shareholders hold shares</li>
+                        <li>Can acquire its own shares under certain circumstances</li>
+                        <li>Directors are responsible for the day to day management of the company</li>
+                        <li>Register of members is required</li>
+                        <li>Offers limited liability to its owners</li>
+                        <li>Audited financial statements</li>
+                        <li>Prohibition on a company to provide financial assistance for the acquisition of its own shares</li>
+                    </ul>
+                 </div>
+                <div class="col-4">
+                    <span class="header">Private Business Corporation(PBC)</span><hr>
+                    <ul>
+                        <li>Has legal persona of its own</li>
+                        <li>Has a continuous succession</li>
+                        <li>Companies cannot hold shares or member’s interest; only individuals can be shareholders</li>
+                        <li>Does not require annual return to be lodged</li>
+                        <li>A committee nominated by the members is responsible for the daily management of the Company</li>
+                        <li>Can either offer or not offer limited liabilities to the members of the Company</li>
+                    </ul>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Private Business Corporation</h1>
+                </div>
+                <div class="col-6 row">
+                    <div class="col-12 header">
+                        Advantages of a PBC (Private Business Corporation)<hr>
+                    </div>
+                    <div class="col-12">
+                        Easy and cheaper to establish and to operate.
+                        The life of the Private Business Corporation is perpetual.
+                        Members have limited liability.
+                        Transfer of ownership is easy.
+                        Fewer legal requirements than a private company.
+                        No need for audits.
+                        Allows one to register as a sole trader.
+                        A Private Business Corporation does not pay annual returns at the Registrar of Companies. No longer applicable under the new Act, PBCs now pay an annual fee.
+                        Can employ an unlimited number of employees.
+                        A PBC is not limited in terms of how much revenue it can make.
+                    </div>
+                </div>
+                <div class="col-6 row">
+                    <div class="col-12 header">
+                        Disadvantages of a PBC (Private Business Corporation)<hr>
+                    </div>
+                    <div class="col-12">
+                        The number of members/ shareholders/ owners are limited to 20 natural persons.
+                        Only individuals (i.e. natural persons) can be shareholders. This means you cannot have organisations as shareholders.
+                        Not as popular as the Private Limited Company.
+                        Not accepted everywhere, some organisations and tenders do not accept PBCs.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center company-reg">
+                    <a href="{% url 'about:company_reg_pricing' %}">Register a company</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- <table>
+            <tbody>
+                <tr>
+                    <td><strong>Private Business Corporation</strong><strong>(PBC)</strong></td>
+                    <td><strong>Private Limited Company</strong>(PLC)</td>
+                    <td><strong>Cooperative Company</strong> <strong>(Co-op)</strong></td>
+                </tr>
+                <tr>
+                    <td>Mainly meant for small to medium businesses</td>
+                    <td>Mainly meant for medium to large businesses</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Can accommodate sole traders</td>
+                    <td>Only accommodates 2 or more people (Directors)</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Has a legal persona of its own apart from its owners</td>
+                    <td>Has a legal persona of its own apart from its owners</td>
+                    <td>Has legal persona of its own</td>
+                </tr>
+                <tr>
+                    <td>Has perpetual succession</td>
+                    <td>Has perpetual succession</td>
+                    <td>Has a continuous succession</td>
+                </tr>
+                <tr>
+                    <td>Can have a maximum of 20 directors</td>
+                    <td>Can have a maximum of 50 directors</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Members are the same as shareholders or owners</td>
+                    <td>Shareholders are owners and can be different from the directors</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Companies cannot be shareholders or hold a member’s interest in a PBC, only individuals can be members</td>
+                    <td>Both companies and individuals can be shareholders in a PLC</td>
+                    <td>Companies cannot hold shares or member’s interest; only individuals can be shareholders</td>
+                </tr>
+                <tr>
+                    <td>Comprised of members</td>
+                    <td>Comprised of directors and shareholders</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Has an incorporation statement and bylaws</td>
+                    <td>Has a certificate, memorandum, articles, CR5 and CR6</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr><td>Articles of association are not required</td>
+                    <td>Registered articles of association</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Does not require annual return to be lodged</td>
+                    <td>Annual returns&nbsp;are compulsory</td>
+                    <td>Does not require annual return to be lodged</td>
+                </tr>
+                <tr>
+                    <td>Has member’s contributions</td>
+                    <td>Has share capital</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Has an accounting officer</td>
+                    <td>Has an auditor</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Annual general meeting not required</td>
+                    <td>Annual general meeting is required</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Members hold member’s interest</td>
+                    <td>Shareholders&nbsp;hold shares</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Can purchase a member’s interest</td>
+                    <td>Can acquire its own shares under certain circumstances</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Members are responsible for the day to day management of the PBC</td>
+                    <td>Directors are responsible for the day to day management of the company</td>
+                    <td>A committee nominated by the members is responsible for the daily management of the Company</td>
+                </tr>
+                <tr>
+                    <td>No register of members is required</td>
+                    <td>Register of members is required</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Offers limited liability to its owners</td>
+                    <td>Offers limited liability to its owners</td>
+                    <td>Can either offer or not offer limited liabilities to the members of the Company</td>
+                </tr>
+                <tr>
+                    <td>No financial statements needed</td>
+                    <td>Audited financial statements</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>No prohibition on a PBC to provide financial assistance for the acquisition of a member’s interest</td>
+                    <td>Prohibition on a company to provide financial assistance for the acquisition of its own shares</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table> -->
+    {% include "all-bases/large-footer.html" %}
+{% endblock %}

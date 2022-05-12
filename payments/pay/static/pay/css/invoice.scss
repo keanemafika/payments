@@ -1,0 +1,386 @@
+$baseColor: #00508B;
+$navfontcolor: #fff;
+$pink: #fd625e;
+$orange: #ff7f0e;
+$light-blue: #8ad4eb;
+$sky-blue: #1f77b4;
+$royal-blue: #00508B;
+$beeligent-yellow: #ffc800;
+$beeligent-brown: #42210b;
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+
+
+
+table {
+  font-family: Titillium Web, arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+nav {
+    background-color: $baseColor;
+    color: #fff;
+
+
+    li {
+        border: solid 1px #fff;
+        border-radius: 6px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    background-color: $baseColor;
+    color: #fff;
+
+
+
+    a {
+        color: $navfontcolor;
+    }
+    a:hover {
+        color: $light-blue;
+    }
+
+
+}
+
+body {
+    color: $baseColor;
+}
+
+.index-container {
+
+    .view-all {
+        a {
+            width: 50%;
+            margin-top: 10px;
+            background-color: $baseColor;
+        }
+        a:hover {
+            width: 50%;
+            margin-top: 10px;
+            background-color: $orange;
+            font-weight: bold;
+        }
+    }
+    text-align: center;
+
+    table {
+        text-align: center;
+    }
+}
+
+.make-payment-container {
+    background-color: $baseColor;
+    border-radius: 6px;
+    margin-top: 5%;
+    padding: 15px;
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    label {
+        color: $navfontcolor;
+        font-weight: bold;
+    }
+
+    hr {
+        color: $orange;
+    }
+
+    button {
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        background-color: $pink;
+        border: none;
+        text-align: center;
+        width: 100%;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        height: 40px;
+        color: #fff;
+        font-weight: bold;
+    }
+    button:hover {
+        background-color: darken($pink, 10%);
+        color: #fff;
+        font-weight: bolder;
+
+    }
+    .cancel-btn{
+        background-color: red;
+    }
+    .confirm-btn{
+        background-color: #4BB543;
+    }
+    .confirm-btn:hover{
+        background-color: darken(#4BB543, 10%);
+    }
+}
+
+.print-receipt-container {
+    background-color: $baseColor;
+    border-radius: 6px;
+    padding: 40px;
+
+    .link {
+        text-align: center;
+    }
+}
+.receipt-details {
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+
+
+.check-status-container {
+
+    .form-div {
+        border: solid 1px $baseColor;
+    }
+    h2 {
+        font-weight: bold;
+    }
+    margin-top: 5%;
+    text-align: center;
+    .classessss  {
+        margin-bottom: 30px;
+        a {
+            border: solid 1px $light-blue;
+            border-radius: 6px;
+            padding-left: 3px;
+            padding-right: 3px;
+            padding: 5px;
+            background-color: $baseColor;
+            color: $navfontcolor;
+        }
+        a:hover {
+            background-color: $orange;
+        }
+    }
+}
+
+.class-status-container {
+    margin-top: 30px;
+}
+
+
+
+
+.all-transactions-container {
+    .download-svg {
+        text-align: center;
+    }
+}
+
+.single-students-details {
+
+    svg {
+        color: $sky-blue;;
+    }
+    svg:hover {
+        color: $orange;;
+    }
+    margin-top: 10px;
+
+    .year-title {
+        font-weight: bold;
+        font-size: 30px;
+        background-color: $baseColor;
+        color: $orange;
+        width: 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        padding-left: 6px;
+
+        .total-balance {
+            color: $light-blue;
+        }
+    }
+
+    .transactions-for {
+        font-size: 25px;
+        font-weight: bold;
+        color: $orange;
+    }
+
+    .year-border {
+        border: solid 1px $light-blue;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 0px;
+      padding-left: 3px;
+      padding-right: 0px;
+    }
+
+    .indi-year {
+        color: $navfontcolor;
+    }
+
+    .term-balance {
+        font-size: 20px;
+        color: $baseColor;
+
+        .groceries-balance {
+            color: $orange;
+        }
+    }
+
+    .clear-button  {
+
+        a {
+            background-color: $baseColor;
+            color: $light-blue;
+            padding: 5px;
+            border-radius: 6px;
+        }
+        a:hover {
+            color: $navfontcolor;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+}
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{
+         display: none;
+         li:hover {
+
+         }
+     }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{
+         display: block;
+         a:hover {
+             background-color: $orange;
+             border-radius: 6px;
+             color: $navfontcolor;
+             font-weight: bold;
+         }
+     }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+.clear-student {
+    margin-top: 10%;
+    text-align: center;
+    font-weight: bold;
+    background-color: $baseColor;
+    color: $navfontcolor;
+    border-radius: 6px;
+    padding-top: 20px;
+    padding-bottom:  20px;
+
+    .name {
+        color: $orange;
+
+    }
+    button {
+        width: 50%;
+        border: None;
+        border-radius: 6px;
+        padding: 5px;
+        background-color: $light-blue;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    button:hover {
+        background-color: $orange;
+        font-weight: bold;
+        font-size: 20px;
+        color: $navfontcolor;
+        font-weight: bolder;
+    }
+}
+
+.payment-button {
+    background-color: $orange;
+    text-align: right;
+    padding: 5px;
+
+    a:hover {
+        font-weight: bold;
+        color: $navfontcolor;
+    }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.add-invoice-container {
+    .for-remove-number-input {
+        input[type=number] {
+            pointer-events: none;
+        }
+    }
+
+
+    .form-row {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+        .form-group {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    }
+
+    .buttons-row {
+        padding-top: 5px;
+    }
+
+    button {
+        width: 100%;
+        font-weight: bold;
+        border: none;
+    }
+    .payment-btn {
+        background-color: $pink;
+
+    }
+    .payment-btn:hover {
+        background-color: $pink;
+        background-color: darken($pink, 10%);
+    }
+}
+
+.confirm-payment {
+    color: $royal-blue;
+    background-color: #fff;
+}

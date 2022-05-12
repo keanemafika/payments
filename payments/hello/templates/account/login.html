@@ -1,0 +1,37 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}WASC | {% trans "Sign In" %}{% endblock %}
+
+
+
+{% block info %}
+
+  <!-- <p>{% blocktrans %}If you have not created an account yet, then please
+  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p> -->
+
+{% endblock %}
+
+{% block form_header %}
+<!-- <span>Login to beeligent.com or</span>  <a class="" href="{% url 'account_signup' %}">Sign Up</a> -->
+{% endblock %}
+
+      {% block form %}
+
+      <form name="loginForm" class="col-lg-12 col-sm-12 col-xs-12 col-md-12 " action="{% url 'account_login' %}" method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+        <!-- start remember-row -->
+          <button target="_blank" type="submit">{% trans "Sign In" %}  &raquo;</button>
+
+        <div class="col-xs-12 col-sm-12 pl-0 pr-0">
+        </div>
+      </form>
+      {% endblock %}

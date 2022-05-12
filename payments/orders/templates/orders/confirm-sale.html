@@ -1,0 +1,152 @@
+
+
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Make Payment
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+
+<div class="make-payment-container">
+    <form class="" action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <div class="confirm-payment">
+            <div class="row col">
+                <div class="col-6">
+                    Payment Made by: {{invoice.name}}
+                </div>
+                <div class="col-6 border-left">
+                    Contact: {{invoice.phone_number}}
+                </div>
+            </div>
+            <hr>
+            <div class="row col">
+                <div class="col-6 ">
+                    Total Amount Paid: {{invoice.total}}
+                </div>
+                <div class="col-6 border-left">
+                    Currency: {{invoice.currency}}
+                </div>
+            </div>
+            <hr>
+            <div class="row col ">
+                <div class="col-12">
+                    <table>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Total</th>
+                      </tr>
+                      {% if invoice.line_one %}
+                      <tr>
+                        <td>{{invoice.line_one}}</td>
+                        <td>{{invoice.line_one_quantity}}</td>
+                        <td>{{invoice.line_one_unit_price}}</td>
+                        <td>{{invoice.line_one_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_two %}
+                      <tr>
+                        <td>{{invoice.line_two}}</td>
+                        <td>{{invoice.line_two_quantity}}</td>
+                        <td>{{invoice.line_two_unit_price}}</td>
+                        <td>{{invoice.line_two_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_three %}
+                      <tr>
+                        <td>{{invoice.line_three}}</td>
+                        <td>{{invoice.line_three_quantity}}</td>
+                        <td>{{invoice.line_three_unit_price}}</td>
+                        <td>{{invoice.line_three_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_four %}
+                      <tr>
+                        <td>{{invoice.line_four}}</td>
+                        <td>{{invoice.line_four_quantity}}</td>
+                        <td>{{invoice.line_four_unit_price}}</td>
+                        <td>{{invoice.line_four_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_five %}
+                      <tr>
+                        <td>{{invoice.line_five}}</td>
+                        <td>{{invoice.line_five_quantity}}</td>
+                        <td>{{invoice.line_five_unit_price}}</td>
+                        <td>{{invoice.line_five_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_six %}
+                      <tr>
+                        <td>{{invoice.line_six}}</td>
+                        <td>{{invoice.line_six_quantity}}</td>
+                        <td>{{invoice.line_six_unit_price}}</td>
+                        <td>{{invoice.line_six_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_seven %}
+                      <tr>
+                        <td>{{invoice.line_seven}}</td>
+                        <td>{{invoice.line_seven_quantity}}</td>
+                        <td>{{invoice.line_seven_unit_price}}</td>
+                        <td>{{invoice.line_seven_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_eight %}
+                      <tr>
+                        <td>{{invoice.line_eight}}</td>
+                        <td>{{invoice.line_eight_quantity}}</td>
+                        <td>{{invoice.line_eight_unit_price}}</td>
+                        <td>{{invoice.line_eight_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_nine %}
+                      <tr>
+                        <td>{{invoice.line_nine}}</td>
+                        <td>{{invoice.line_nine_quantity}}</td>
+                        <td>{{invoice.line_nine_unit_price}}</td>
+                        <td>{{invoice.line_nine_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                      {% if invoice.line_ten %}
+                      <tr>
+                        <td>{{invoice.line_ten}}</td>
+                        <td>{{invoice.line_ten_quantity}}</td>
+                        <td>{{invoice.line_ten_unit_price}}</td>
+                        <td>{{invoice.line_ten_total_price}}</td>
+                      </tr>
+                      {% endif %}
+                    </table>
+                </div>
+
+
+            </div>
+            <hr>
+            <div class="row col">
+                <div class="col-xs-4 col-lg-4">
+                    <button class="confirm-btn" type="submit" name="button">Confirm Sale</button>
+                </div>
+                <div class="col-xs-4 col-lg-4 border-left">
+                    <button type="" name=""><a href="{% url 'orders:edit_sale' invoice.id %}">Edit Sale</a></button>
+                </div>
+                <div class="col-xs-4 col-lg-4 border-left">
+                    <button class="cancel-btn" type="" name=""><a href="{% url 'orders:delete_sale' invoice.id %}">Cancel Sale</a></button>
+                </div>
+            </div>
+        </div>
+</form>
+</div>
+
+
+
+{% endblock %}

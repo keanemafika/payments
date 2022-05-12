@@ -1,0 +1,48 @@
+
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Print Receipt
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<div class="receipt-details">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Level</th>
+        <th>Particular</th>
+
+        <th>Term</th>
+        <th>Month</th>
+        <th>Made on</th>
+      </tr>
+      <tr>
+        <td><a href="{% url 'pay:single_student_details' individualpayment.profile.user.username %}">{{individualpayment.profile.first_name}} {{individualpayment.profile.last_name}} ({{individualpayment.profile.user.username}})</a></td>
+        <td>{{individualpayment.amount_paid}}</td>
+        <td>{{individualpayment.currency}}</td>
+        <td>{{individualpayment.profile.level}}</td>
+        <td>{{individualpayment.particular}}</td>
+        <td>{{individualpayment.term}}</td>
+        <td>{{individualpayment.month}}</td>
+
+        <td>{{individualpayment.created_on}}</td>
+      </tr>
+    </table>
+</div>
+<div class="print-receipt-container">
+    <div class=" link">
+        <div class="">
+            <a class="btn btn-info"  href="{% url 'pay:pdf_download' individualpayment.id %}">Download Receipt</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

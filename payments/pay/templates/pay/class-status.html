@@ -1,0 +1,34 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Class Status | {{get_classroom.title}}
+{% endblock %}
+
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container class-status-container">
+    <h1>{{get_classroom.title}}</h1>
+    <div class="transactions-table">
+        <table>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Student No.</th>
+          </tr>
+          {% for item in get_all_users %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td> <a href="{% url 'pay:single_student_details' item.user.username %}">{{item.first_name}} {{item.last_name}} ({{item.user.username}})</a> </td>
+            <td> <a href="{% url 'pay:single_student_details' item.user.username %}">{{item.user.username}}</a> </td>
+          </tr>
+          {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

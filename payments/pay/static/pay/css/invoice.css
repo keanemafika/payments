@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900");
+table {
+  font-family: Titillium Web, arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+nav {
+  background-color: #00508B;
+  color: #fff;
+  background-color: #00508B;
+  color: #fff;
+}
+nav li {
+  border: solid 1px #fff;
+  border-radius: 6px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+nav a {
+  color: #fff;
+}
+nav a:hover {
+  color: #8ad4eb;
+}
+
+body {
+  color: #00508B;
+}
+
+.index-container {
+  text-align: center;
+}
+.index-container .view-all a {
+  width: 50%;
+  margin-top: 10px;
+  background-color: #00508B;
+}
+.index-container .view-all a:hover {
+  width: 50%;
+  margin-top: 10px;
+  background-color: #ff7f0e;
+  font-weight: bold;
+}
+.index-container table {
+  text-align: center;
+}
+
+.make-payment-container {
+  background-color: #00508B;
+  border-radius: 6px;
+  margin-top: 5%;
+  padding: 15px;
+}
+.make-payment-container h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.make-payment-container label {
+  color: #fff;
+  font-weight: bold;
+}
+.make-payment-container hr {
+  color: #ff7f0e;
+}
+.make-payment-container button {
+  background-color: #fd625e;
+  border: none;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  height: 40px;
+  color: #fff;
+  font-weight: bold;
+}
+.make-payment-container button a {
+  text-decoration: none;
+  color: #fff;
+}
+.make-payment-container button:hover {
+  background-color: #fc312c;
+  color: #fff;
+  font-weight: bolder;
+}
+.make-payment-container .cancel-btn {
+  background-color: red;
+}
+.make-payment-container .confirm-btn {
+  background-color: #4BB543;
+}
+.make-payment-container .confirm-btn:hover {
+  background-color: #3c9035;
+}
+
+.print-receipt-container {
+  background-color: #00508B;
+  border-radius: 6px;
+  padding: 40px;
+}
+.print-receipt-container .link {
+  text-align: center;
+}
+
+.receipt-details {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.check-status-container {
+  margin-top: 5%;
+  text-align: center;
+}
+.check-status-container .form-div {
+  border: solid 1px #00508B;
+}
+.check-status-container h2 {
+  font-weight: bold;
+}
+.check-status-container .classessss {
+  margin-bottom: 30px;
+}
+.check-status-container .classessss a {
+  border: solid 1px #8ad4eb;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding: 5px;
+  background-color: #00508B;
+  color: #fff;
+}
+.check-status-container .classessss a:hover {
+  background-color: #ff7f0e;
+}
+
+.class-status-container {
+  margin-top: 30px;
+}
+
+.all-transactions-container .download-svg {
+  text-align: center;
+}
+
+.single-students-details {
+  margin-top: 10px;
+}
+.single-students-details svg {
+  color: #1f77b4;
+}
+.single-students-details svg:hover {
+  color: #ff7f0e;
+}
+.single-students-details .year-title {
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #00508B;
+  color: #ff7f0e;
+  width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding-left: 6px;
+}
+.single-students-details .year-title .total-balance {
+  color: #8ad4eb;
+}
+.single-students-details .transactions-for {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff7f0e;
+}
+.single-students-details .year-border {
+  border: solid 1px #8ad4eb;
+  padding: 5px;
+  border-radius: 5px;
+}
+.single-students-details td, .single-students-details th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 0px;
+  padding-left: 3px;
+  padding-right: 0px;
+}
+.single-students-details .indi-year {
+  color: #fff;
+}
+.single-students-details .term-balance {
+  font-size: 20px;
+  color: #00508B;
+}
+.single-students-details .term-balance .groceries-balance {
+  color: #ff7f0e;
+}
+.single-students-details .clear-button a {
+  background-color: #00508B;
+  color: #8ad4eb;
+  padding: 5px;
+  border-radius: 6px;
+}
+.single-students-details .clear-button a:hover {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+  .navbar .nav-item:hover .dropdown-menu a:hover {
+    background-color: #ff7f0e;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .navbar .nav-item .dropdown-menu {
+    margin-top: 0;
+  }
+}
+.clear-student {
+  margin-top: 10%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #00508B;
+  color: #fff;
+  border-radius: 6px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.clear-student .name {
+  color: #ff7f0e;
+}
+.clear-student button {
+  width: 50%;
+  border: None;
+  border-radius: 6px;
+  padding: 5px;
+  background-color: #8ad4eb;
+  font-weight: bold;
+  font-size: 20px;
+}
+.clear-student button:hover {
+  background-color: #ff7f0e;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.payment-button {
+  background-color: #ff7f0e;
+  text-align: right;
+  padding: 5px;
+}
+.payment-button a:hover {
+  font-weight: bold;
+  color: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.add-invoice-container .for-remove-number-input input[type=number] {
+  pointer-events: none;
+}
+.add-invoice-container .form-row {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.add-invoice-container .form-row .form-group {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.add-invoice-container .buttons-row {
+  padding-top: 5px;
+}
+.add-invoice-container button {
+  width: 100%;
+  font-weight: bold;
+  border: none;
+}
+.add-invoice-container .payment-btn {
+  background-color: #fd625e;
+}
+.add-invoice-container .payment-btn:hover {
+  background-color: #fd625e;
+  background-color: #fc312c;
+}
+
+.confirm-payment {
+  color: #00508B;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=invoice.css.map */

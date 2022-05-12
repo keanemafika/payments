@@ -1,0 +1,269 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html lang="en" dir="ltr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no %}"/>
+    <meta charset="utf-8 %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/invoice.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reboot.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reebot.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/new.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/select2.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/select2.css' %}"/>
+<style>
+
+    @page {
+        size: a4 portrait;
+        padding: 20px;
+    }
+
+    .receipt-no {
+        color:red;
+        font-weight: bold;
+        font-size: 25px;
+        font-family: Times New Roman;
+    }
+    .date {
+        text-align:right;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+}
+
+body {
+    font-size: 14px;
+}
+
+.payment-details, .header, .customer-row td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+
+}
+tr {
+    padding: 3px;
+    margin: 3px;
+}
+hr {
+    padding: 0px;
+    margin: 0px;
+}
+.date-row {
+    background-color: #b8d3ff;
+}
+.total-name, .total-amount {
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 30px;
+}
+.top-address {
+    font-size: 15px;
+}
+.header-table, .customer-table {
+    margin-bottom: 15px;
+}
+.customer-row {
+    font-size: 20px;
+}
+
+.Payment-details-title {
+    font-size: 20px;
+    background-color: #b8d3ff;
+    font-weight: bold;
+}
+
+.balance-due {
+    font-size: 18px;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #b8d3ff;
+   text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="row header">
+        <table class="header-table">
+          <tr>
+            <td style="width:60%"> <h1>WASC GROUP OF SCHOOLS<br>RECEIPT</h1> </td>
+            <td class="date top-address">17 Jason Moyo St.<br>
+            Between 1st and Connaught Av.<br>
+            Bulawayo<hr color="#b8d3ff">
+            Tel: (0292)888195<br>
+            Cell: 0777852719<br>
+            Email: help@wascgos.com<br>
+            website: www.wascgos.com<br>
+        </td>
+          </tr>
+
+        </table>
+    </div>
+    <hr>
+    <div class="row date-row">
+        <table class="row date-row date-receipt-table">
+          <tr>
+            <th class="">RECEIPT No: <span class="receipt-no">0000{{sale.id}}</span> </th>
+            <td class="date">{{sale.invoice_date}}</td>
+          </tr>
+        </table>
+    </div><br>
+    <div class="row payment-details">
+            <span class="Payment-details-title">Received From</span>
+            <table class="row payment-details-table">
+              <tr>
+                <th style="width:100%">Name: {{sale.name}}<br>Phone No.: 0{{sale.phone_number}}</th>
+              </tr>
+
+            </table>
+    </div><br>
+    <div class="row payment-details">
+            <span class="Payment-details-title">Payment Details</span>
+            <table class="row payment-details-table">
+              <tr>
+                <th style="width:50%">Particular</th>
+                <th style="width:10%;text-align:center">Quantity</th>
+                <th style="width:15%">Unit Price</th>
+                <th style="width:20%;text-align:center">Total({{sale.currency}})</th>
+              </tr>
+              <tr>
+                <td>{{sale.line_one|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_one_quantity %} {{sale.line_one_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_one_unit_price %} {{sale.line_one_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_one_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %} {{sale.line_one_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_two|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_two_quantity %} {{sale.line_two_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_two_unit_price %} {{sale.line_two_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_two_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_two_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_three|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_three_quantity %} {{sale.line_three_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_three_unit_price %} {{sale.line_three_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_three_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_three_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_four|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_four_quantity %} {{sale.line_four_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_four_unit_price %} {{sale.line_four_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_four_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_four_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_five|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_five_quantity %} {{sale.line_five_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_five_unit_price %} {{sale.line_five_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_five_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_five_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_six|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_six_quantity %} {{sale.line_six_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_six_unit_price %} {{sale.line_six_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_six_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_six_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_seven|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_seven_quantity %} {{sale.line_seven_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_seven_unit_price %} {{sale.line_seven_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_seven_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_seven_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_eight|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_eight_quantity %} {{sale.line_eight_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_eight_unit_price %} {{sale.line_eight_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_eight_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_eight_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_nine|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_nine_quantity %} {{sale.line_nine_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_nine_unit_price %} {{sale.line_nine_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_nine_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_nine_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+              </tr>
+              <tr>
+                <td>{{sale.line_ten|default_if_none:"&nbsp;"}}</td>
+                <td style="text-align:center">{% if sale.line_ten_quantity %} {{sale.line_ten_quantity}} {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_ten_unit_price %} {{sale.line_ten_unit_price}}.00 {% else %} &nbsp; {% endif %}</td>
+                <td style="text-align:center">{% if sale.line_ten_total_price %}
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                     {{sale.line_ten_total_price}}.00 {% else %} &nbsp; {% endif %}</td>
+
+              </tr>
+
+              <tr>
+                <td class="total-name" colspan="3">Total</td>
+                <td class="total-amount">
+                    {% if sale.currency == 'USD' %}${% endif %}
+                    {% if sale.currency == 'Rand' %}R{% endif %}
+                    {% if sale.currency == 'RTGS' %}${% endif %}
+                    {{sale.total}}.00
+                </td>
+              </tr>
+            </table>
+    </div>
+    <br>
+    <div class="footer row">
+        Thank you for your payment!!
+    </div>
+
+</body>
+</html>

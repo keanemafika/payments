@@ -1,0 +1,78 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Make Payment
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+    <h2>Make Payment</h2>
+    <div class="make-payment-container">
+        <form class="" method="post">
+            {% csrf_token %}
+            <div class=" row col">
+    						<div class=" col-xs-12 col-lg-6">
+                					<label>Student</label>
+                					<span class="">{{ form.profile }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-3">
+                                    <label>Term</label>
+                                    <span class="">{{ form.term }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-3">
+                                    <label>Month</label>
+                                    <span class="">{{ form.month }}</span>
+                            </div>
+
+                        </div><br><hr style="height:2px;border-width:0;color:gray;background-color:#ff7f0e">
+                        <div class=" row col">
+    						<div class=" col-xs-12 col-lg-3">
+                					<label>Particular</label>
+                					<span class="">{{ form.particular }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-3">
+                                    <label>Currency</label>
+                                    <span class="">{{ form.currency }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-3">
+                                    <label>Amount Paid</label>
+                                    <span class="">{{ form.actual_amount_paid }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-3">
+                                    <label>USD Equivalent</label>
+                                    <span class="">{{ form.amount_paid }}</span>
+                            </div>
+
+                        </div><br>
+                        <div class=" row col">
+
+                            <div class=" col-xs-12 col-lg-6">
+                                    <label>Client Name</label>
+                                    <span class="">{{ form.client_name }}</span>
+                            </div>
+                            <div class=" col-xs-12 col-lg-6">
+                                    <label>Phone Number</label>
+                                    <span class="">{{ form.phone_number }}</span>
+                            </div>
+                        </div><br>
+                        <div class=" row col">
+
+                            <div class=" col-xs-12 col-lg-12">
+                                    <label>Address</label>
+                                    <span class="">{{ form.address }}</span>
+                            </div>
+                        </div><br>
+                        <div class="row col">
+                            <div class="col-xs-12 col-lg-12">
+                                <button type="submit" name="button">Make Payment</button>
+                            </div>
+                        </div>
+        </form>
+    </div>
+
+{% endblock %}

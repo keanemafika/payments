@@ -1,0 +1,78 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+
+
+
+{% block body %}
+<div class="container">
+    <div class="container make-payment-container">
+        <form class="" method="post">
+            {% csrf_token %}
+            {{form.user}}
+                <div class="row">
+                    <div class="col-5">
+                        <label for="first_name">First Name</label>
+                        {{form.first_name}}
+                    </div>
+                    <div class="col-5">
+                        <label for="last_name">Last Name</label>
+                        {{form.last_name}}
+                    </div>
+                    <div class="col-2">
+                        <label for="last_name">Age</label>
+                        {{form.age}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="address">Address</label>
+                        {{form.address}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="gender">Gender</label>
+                        {{form.gender}}
+                    </div>
+                    <div class="col-4">
+                        <label for="tell">Telephone No.</label>
+                        {{form.tell}}
+                    </div>
+                    <div class="col-4">
+                        <label for="cell">Cellephone No.</label>
+                        {{form.cell}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="level">Level</label>
+                        {{form.level}}
+                    </div>
+                    <div class="col-4">
+                        <label for="classroom">Classroom</label>
+                        {{form.classroom}}
+                    </div>
+                    <div class="col-4">
+                        <label for="is_preschool">Pre School</label>
+                        {{form.is_preschool}}
+                    </div>
+                </div>
+                <br>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" name="button">Complete Enrollment</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

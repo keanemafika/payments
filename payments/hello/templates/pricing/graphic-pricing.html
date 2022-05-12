@@ -1,0 +1,307 @@
+{% extends "all-bases/main-base.html" %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'about/css/pricing.css' %}"/>
+{% endblock %}
+
+{% block script %}
+  <!-- slider script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <!-- slider -->
+    <script>
+      $('.slider').each(function () {
+        var $this = $(this);
+        var $group = $this.find('.slide_group');
+        var $slides = $this.find('.slide');
+        var bulletArray = [];
+        var currentIndex = 0;
+        var timeout;
+
+        function move(newIndex) {
+          var animateLeft, slideLeft;
+
+          advance();
+
+          if ($group.is(':animated') || currentIndex === newIndex) {
+            return;
+          }
+
+          bulletArray[currentIndex].removeClass('active');
+          bulletArray[newIndex].addClass('active');
+
+          if (newIndex > currentIndex) {
+            slideLeft = '100%';
+            animateLeft = '-100%';
+          } else {
+            slideLeft = '-100%';
+            animateLeft = '100%';
+          }
+
+          $slides.eq(newIndex).css({
+            display: 'block',
+            left: slideLeft
+          });
+          $group.animate({
+            left: animateLeft
+          }, function () {
+            $slides.eq(currentIndex).css({
+              display: 'none'
+            });
+            $slides.eq(newIndex).css({
+              left: 0
+            });
+            $group.css({
+              left: 0
+            });
+            currentIndex = newIndex;
+          });
+        }
+
+        function advance() {
+          clearTimeout(timeout);
+          timeout = setTimeout(function () {
+            if (currentIndex < ($slides.length - 1)) {
+              move(currentIndex + 1);
+            } else {
+              move(0);
+            }
+          }, 4000);
+        }
+
+        $('.next_btn').on('click', function () {
+          if (currentIndex < ($slides.length - 1)) {
+            move(currentIndex + 1);
+          } else {
+            move(0);
+          }
+        });
+
+        $('.previous_btn').on('click', function () {
+          if (currentIndex !== 0) {
+            move(currentIndex - 1);
+          } else {
+            move(3);
+          }
+        });
+
+        $.each($slides, function (index) {
+          var $button = $('<a class="slide_btn">&bull;</a>');
+
+          if (index === currentIndex) {
+            $button.addClass('active');
+          }
+          $button.on('click', function () {
+            move(index);
+          }).appendTo('.slide_buttons');
+          bulletArray.push($button);
+        });
+
+        advance();
+      });
+    </script>
+    <!-- before after script -->
+    <script>
+      var divisor = document.getElementById("divisor"),
+          handle = document.getElementById("handle"),
+          slider = document.getElementById("slider");
+
+        function moveDivisor() {
+          handle.style.left = slider.value + "%";
+          divisor.style.width = slider.value + "%";
+        }
+
+        window.onload = function () {
+          moveDivisor();
+        };
+    </script>
+{% endblock %}
+
+{% block title %}
+    Graphic Design
+{% endblock %}
+
+
+
+{% block body %}
+    {% include "all-bases/fixed-nav-strip.html" %}
+    <!-- important blank space -->
+<div class="blank-space"></div>
+
+<div class="container-fluid slider-section">
+  <div class="outer-wrapper">
+
+  
+    <h1>Demo 2</h1>
+    <p>hover would pause the animation</p>
+    <div class="s-wrap s-type-2" role="slider">
+      <ul class="s-content">
+        <li class="s-item s-item-1"></li>
+        <li class="s-item s-item-2"></li>
+        <li class="s-item s-item-3"></li>
+        <li class="s-item s-item-4"></li>
+        <li class="s-item s-item-5"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="new">
+  
+</div>
+
+
+
+<div class=" before-after container-fluid">
+  <div class="row">
+    <div class=" col-sm-12 col-xs-12 col-md-12 col-lg-4 col-xl-4 p-0 m-0 world-class-design">
+      <img class="" src="{% static 'about/img/world-class-design.png' %}" alt="">
+    </div>
+    <div class="pt-3 col-sm-12 col-xs-12 col-md-12 col-lg-8 col-xl-8 ">
+      <div class="graphic-des-cont">
+        <section class="wrapper">
+          <div class="flex-wrapper">
+            <div class="card">
+              <a href="#">
+                <div class="img lg"></div>
+                <div class="card-content">
+                  <h4>Logos</h4>
+                  <p>So, why is a logo important? Because it grabs attention, makes a strong first impression, is the
+                    foundation of your
+                    brand identity, is memorable, separates you from competition, fosters brand loyalty, and is expected
+                    by your audience.
+                    Let us design one for you today!</p>
+                  <p class="read-more">Click here to read more</p>
+                </div>
+                <div class="fade"></div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="img poster"></div>
+                <div class="card-content">
+                  <h4>Posters</h4>
+                  <p>Posters are designed to be both eye-catching and informative. Posters may be used for many
+                    purposes. They are a frequent
+                    tool of advertisers (particularly of events, musicians, and films) and other groups trying to
+                    communicate a message. Let
+                    us design a poster for u today that will make a great lasting impression!</p>
+                  <p class="read-more">Click here to read more</p>
+                </div>
+                <div class="fade"></div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="img"></div>
+                <div class="card-content">
+                  <h4>Illustrations</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, impedit minima suscipit
+                    animi
+                    tempore non, debitis quibusdam, est quae similique a iure pariatur eum voluptatem, adipisci ut
+                    sapiente
+                    laudantium...</p>
+                  <p class="read-more">Click here to read more</p>
+                </div>
+                <div class="fade"></div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="img cat"></div>
+                <div class="card-content">
+                  <h4>Catalogues and Brochures</h4>
+                  <p>A data catalog is essential to your business because it synthesizes all the details about your
+                    organization's data
+                    assets across multiple data dictionaries by organizing them into a simple, easy to digest format for
+                    your customers. Let
+                    us build and maintain one for you at an affordable price.</p>
+                  <p class="read-more">Click here to read more</p>
+                </div>
+                <div class="fade"></div>
+              </a>
+            </div>
+
+
+            <div class="card remove-margin">
+              <a href="#">
+                <div class="img img-rm"></div>
+                <div class="card-content">
+                  <h4>Background removal and Editing</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, impedit minima suscipit
+                    animi
+                    tempore non, debitis quibusdam, est quae similique...</p>
+                  <p class="read-more">Click here to read more</p>
+                </div>
+                <div class="fade"></div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid before-after">
+    <div class="row">
+      <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-center justify-content-center">
+        <div class="before-after">
+          <div class="images">
+            <div class="before">
+              <img src="{% static 'about/img/img-rm/trans.png' %}" alt="before">
+            </div>
+            <div class="after">
+              <img src="{% static 'about/img/img-rm/og.jpg' %}" alt="after"> </div>
+          </div>
+          <div class="controls">
+            <div class="pad"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-6">
+        <h1>Background removal & Image Editing</h1>
+        <hr>
+        <h4>Get the perfect photo that u actually wanted! Whatever graphic design or edit you need, we’ll help get
+        it done.</h4>
+        <br>
+        <span class="get-now-button"><a href="">Get and edit now!</a></span>
+      </div>
+    </div>
+    <br>
+</div>
+
+
+
+<script>
+  const $ = el => document.querySelector(el);
+    let dragging = false;
+
+    document.onmousedown = () => dragging = true;
+    document.onmouseup = () => dragging = false;
+
+    document.onmousemove = (e) => {
+      let slider = $(".before-after");
+      const insideBlock = e.clientY <= slider.offsetHeight && e.clientX <= slider.offsetWidth;
+
+      // если тянем, и курсор в районе картинки
+      if (dragging && insideBlock) {
+        let x = e.clientX;
+
+        $(".pad").style.left = x + "px";
+        $(".after").style.width = x + "px";
+      }
+    };
+</script>
+
+<script>
+  $(document).ready(function () {
+      $('.slider').slider({ full_width: true });
+    });
+</script>
+
+    {% include "all-bases/large-footer.html" %}
+    
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Cancel Sale
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+    <h2>Cancel Sale</h2>
+    <hr>
+    <h1>Are You sure you want to cancel this sale?</h1>
+    <div class="make-payment-container">
+        <form class="" method="post">
+            {% csrf_token %}
+
+                <div class="row col">
+                    <div class="col-xs-12 col-lg-12">
+                        {{form}}
+                        <button type="submit" name="button">Cancel Sale</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+{% endblock %}

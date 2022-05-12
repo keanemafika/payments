@@ -1,0 +1,311 @@
+body {
+  background-image: linear-gradient(to bottom right, #fff, #caf0f8);
+  background-repeat: no-repeat;
+  background-size: 100% 1500px;
+}
+body a {
+  color: #00b4d8;
+  font-weight: bold;
+}
+body a:hover {
+  color: #005f72;
+  font-weight: bolder;
+}
+
+.navbar .navbar-toggler {
+  color: #2e5993;
+}
+
+.errorlist, .nonfield {
+  color: red;
+}
+
+.form-cont {
+  /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+}
+.form-cont .form-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.form-cont .privacy-policy {
+  color: #fff;
+}
+.form-cont .privacy-policy a {
+  color: #f099c2;
+  font-weight: bold;
+}
+.form-cont .privacy-policy a:hover {
+  color: #e3408d;
+  font-weight: bolder;
+}
+.form-cont hr {
+  border: solid #f099c2;
+}
+.form-cont .contact-us {
+  margin-bottom: 50px;
+}
+.form-cont .lnkz {
+  color: #f099c2;
+  font-weight: bold;
+}
+.form-cont .lnkz:hover {
+  color: #e3408d;
+  font-weight: bolder;
+}
+.form-cont .on-left {
+  background-color: #fff;
+}
+.form-cont .on-left .all {
+  margin: 0px;
+  color: #2e5993;
+  padding: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+.form-cont .on-left .all a {
+  color: #f099c2;
+  font-weight: bold;
+}
+.form-cont .on-left .all a:hover {
+  color: #e3408d;
+  font-weight: bolder;
+}
+.form-cont .form-bg {
+  background-color: #2e5993;
+}
+.form-cont .ama-message {
+  color: red;
+}
+.form-cont * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+.form-cont a {
+  text-decoration: none;
+  color: inherit;
+}
+.form-cont body {
+  margin: 0;
+  padding: 0;
+}
+.form-cont form {
+  padding-bottom: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #2e5993;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 50px;
+  margin-top: 5px;
+}
+.form-cont form button {
+  background-color: #F5BD1F;
+  width: 100%;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  height: 38px;
+  color: #fff;
+  font-size: 20px;
+}
+.form-cont form label {
+  color: #fff;
+}
+.form-cont .form-bg h3 {
+  width: 100%;
+  background-color: #2e5993;
+  padding: 15px;
+  margin: 0px;
+  position: relative;
+  line-height: 30px;
+  border-bottom: solid 1px #f099c2;
+  color: #fff;
+}
+.form-cont label.checkbox-label input[type=checkbox] {
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
+.form-cont form input[type=email],
+.form-cont form input[type=text],
+.form-cont form input[type=password] {
+  width: 100%;
+  height: 38px;
+  border-radius: 3px;
+  border: 0;
+  color: #2e5993;
+  font-size: 110%;
+  padding-left: 12px;
+  margin-top: 5px;
+  background-color: #f0f0f0;
+}
+.form-cont form input[type=submit] {
+  background-color: #18B9E7;
+  color: #fff;
+  font-weight: 700;
+  font-size: 110%;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+.form-cont ::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+.form-cont ::-moz-placeholder {
+  text-transform: capitalize;
+}
+.form-cont :-moz-placeholder {
+  text-transform: capitalize;
+}
+.form-cont form .back {
+  color: #fff;
+}
+.form-cont form .back a {
+  color: #F5BD1F;
+}
+.form-cont form .back a:hover {
+  color: #3676a4;
+}
+.form-cont .sign-out-button {
+  margin-top: 15px;
+}
+@media only screen and (max-width: 768px) {
+  .form-cont label[for=id_login], .form-cont label[for=id_password], .form-cont label[for=id_password2], .form-cont label[for=id_password1],
+.form-cont label[for=id_email], .form-cont label[for=id_username], .form-cont label[for=id_oldpassword], .form-cont label[for=password_set] label[for=set_password] {
+    display: none;
+  }
+  .form-cont .all {
+    font-size: 12px;
+  }
+  .form-cont .form:first-of-type {
+    margin: 100px auto;
+  }
+  .form-cont .form:last-of-type {
+    margin: 100px auto;
+  }
+  .form-cont form input[type=email],
+.form-cont form input[type=text],
+.form-cont form input[type=password] {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding-top: 5px;
+    margin: 15px auto;
+    border-radius: 3px;
+    border: 0;
+    color: #333;
+    font-size: 110%;
+    align: center;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .form-cont {
+    margin-top: 0px;
+  }
+
+  div.base {
+    display: none;
+  }
+
+  .learn-pic {
+    display: none;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .form-cont {
+    margin-top: 0px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .form-cont {
+    margin-top: 110px;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .form-cont {
+    margin-top: 110px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .form-cont {
+    margin-top: 110px;
+  }
+}
+/*--------------------*/
+/* Profile page */
+/*--------------------*/
+/*--------------------*/
+/* 02. Common CSS */
+/*--------------------*/
+.profile-container {
+  background-color: #fff;
+  margin-top: 40px;
+}
+.profile-container .user-pic {
+  padding: 5px;
+}
+.profile-container .bio {
+  padding-left: 5px;
+}
+.profile-container .avatar {
+  vertical-align: middle;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+.profile-container .left-bar {
+  background-color: #2e5993;
+  color: #fff;
+  text-align: center;
+}
+.profile-container .left-bar button {
+  background-color: #00b4d8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  height: 4rem;
+  width: 100%;
+  text-align: center;
+}
+.profile-container .left-bar button a {
+  color: #fff;
+}
+.profile-container .right-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #2e5993;
+}
+.profile-container .right-bar .inner-btn {
+  padding: 5px;
+  border-radius: 5px;
+  color: #ffb5ea;
+}
+.profile-container .right-bar .inner-btn:hover {
+  color: #ffe8f8;
+}
+.profile-container .right-bar .announcements {
+  background-color: #2e5993;
+}
+.profile-container .right-bar .assignments {
+  background-color: #3676a4;
+  color: #2e5993;
+}
+.profile-container .right-bar .results {
+  background-color: #2e5993;
+}
+.profile-container hr {
+  background-color: #2e5993;
+}
+
+/*# sourceMappingURL=accounts.css.map */

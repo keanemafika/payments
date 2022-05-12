@@ -1,0 +1,26 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'account/css/account.css' %}"/>
+{% endblock %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+
+{% block form_header %}
+{% trans "Verify Your E-mail Address" %}
+{% endblock %}
+
+
+{% block form %}
+<h3 class="auth-title">{% blocktrans %}This part of the site requires us to verify that
+you are who you claim to be. For this purpose, we require that you
+verify ownership of your e-mail address. {% endblocktrans %}
+</h3>
+<p>{% blocktrans %}We have sent an e-mail to you for
+verification. Please click on the link inside this e-mail. Please
+contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+{% endblock %}

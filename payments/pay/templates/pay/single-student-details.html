@@ -1,0 +1,240 @@
+
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Student Details | {{get_user.profile.user.username}}
+{% endblock %}
+
+
+{% block head %}
+<style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+
+    body {
+         font-family: 'Titillium Web', sans-serif;
+    }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="single-students-details">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Student No.</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Class</th>
+        <th>Tell</th>
+        <th>Cell</th>
+        <th>Address</th>
+      </tr>
+      <tr>
+        <td>{{get_user.profile.first_name}} {{get_user.profile.last_name}}</td>
+        <td>{{get_user.profile.user.username}}</td>
+        <td>{{get_user.profile.gender.title}}</td>
+        <td>{{get_user.profile.age}}</td>
+        <td>{{get_user.profile.classroom.title}}</td>
+        <td>{{get_user.profile.tell}}</td>
+        <td>{{get_user.profile.cell}}</td>
+        <td>{{get_user.profile.address}}</td>
+      </tr>
+    </table><hr>
+    <div class="clear-button">
+        <a href="{% url 'pay:edit_student_details' get_user.profile.id %}">Edit Student Details</a>
+    </div>
+    <br>
+    <!-- TERM 1 2022 -->
+    <div class="year-border">
+        <div class="year-title">
+            <span class="indi-year">Year: 2022</span> | Term 1 | <span class="total-balance">Total Balance: ${{total_balance_term_1_2022}}</span>
+        </div>
+        <!-- Term 1 2022-->
+        <table class="table table-striped">
+                    <thead>
+                      <tr>
+                          <th class="" scope="col">#</th>
+                          <th class="" scope="col">Paid By</th>
+                          <th style="width:5%;" class="" scope="col">Amount Paid</th>
+                          <th style="width:8%;" class="" scope="col">USD EQUIVALENT</th>
+                          <th style="width:7%;" class="" scope="col">Particular</th>
+                          <th style="width:5%;" class="" scope="col">Currency</th>
+                          <th style="width:7%;" class="" scope="col">Term</th>
+                          <th style="width:7%;" class="" scope="col">Month</th>
+                          <th style="width:10%;" class="" scope="col">Paid on</th>
+                          <th style="width:7%;" class="" scope="col">Received by</th>
+                          <th style="width:5%;" class="" scope="col">receipt</th>
+                    </thead>
+                    <tbody>
+                        <div class="transactions-for row">
+
+                            <div class="col-12 term-balance yy">
+                                <span>Tuition Balance: <span class="groceries-balance">${{tuition_balance_term_1_2022}}</span></span> |
+                                <span>Bus levy Balance: <span class="groceries-balance">${{bus_levy_balance_term_1_2022}}</span></span> |
+                                {% if get_user.profile.level.clusterlevel.slug == "pre-school" %}
+                                <span>Groceries Balance: <span class="groceries-balance">${{groceries_balance_term_1_2022}}</span></span> |
+                                {% endif %}
+                                {% if get_clearance_for_term_1_2022.cleared %}
+                                <span>Status: <span class="groceries-balance">Cleared</span></span>
+                                {% else %}
+                                <span>Status: <span class="groceries-balance">Not Cleared</span></span>
+                                {% endif %}
+                            </div>
+                        </div>
+                {% for item in all_term_1_payments %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{item.client_name}},  {{item.phone_number}} | ({{item.address}})</td>
+                        <td>{{item.actual_amount_paid}}</td>
+                        <td>{{item.amount_paid}}</td>
+                        <td>{{item.particular}}</td>
+                        <td>{{item.currency}}</td>
+                        <td>{{item.term}}</td>
+                        <td>{{item.month}}</td>
+                        <td>{{item.created_on}}</td>
+                        <td>{{item.cashier.first_name}} {{item.cashier.last_name}}</td>
+                        <td>
+                            <a href="{% url 'pay:pdf_download' item.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for item in all_term_2_payments %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{item.client_name}},  {{item.phone_number}} | ({{item.address}})</td>
+                        <td>{{item.amount_paid}}</td>
+                        <td>{{item.particular}}</td>
+                        <td>{{item.currency}}</td>
+                        <td>{{item.created_on}}</td>
+                        <td>
+                            <a href="{% url 'pay:pdf_download' item.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <br>
+
+                </tbody>
+          </table>
+          {% if get_clearance_for_term_1_2022 %}
+          <div class="clear-button">
+              <a href="{% url 'pay:clear_student' get_clearance_for_term_1_2022.id %}">
+                  {% if get_clearance_for_term_1_2022.cleared  %}
+                  Unclear Student
+                  {% else %}
+                  Clear Student
+                  {% endif %}
+              </a>
+          </div>
+          {% endif %}
+    </div>
+    <br>
+    <!-- TERM 2 2022 -->
+    <div class="year-border">
+        <div class="year-title">
+            <span class="indi-year">Year: 2022</span> | Term 2 | <span class="total-balance">Total Balance: ${{total_balance_term_2_2022}}</span>
+        </div>
+        <!-- Term 2 2022-->
+        <table class="table table-striped">
+                    <thead>
+                      <tr>
+                          <th class="" scope="col">#</th>
+                          <th class="" scope="col">Paid By</th>
+                          <th style="width:5%;" class="" scope="col">Amount Paid</th>
+                          <th style="width:8%;" class="" scope="col">USD EQUIVALENT</th>
+                          <th style="width:7%;" class="" scope="col">Particular</th>
+                          <th style="width:5%;" class="" scope="col">Currency</th>
+                          <th style="width:7%;" class="" scope="col">Term</th>
+                          <th style="width:7%;" class="" scope="col">Month</th>
+                          <th style="width:10%;" class="" scope="col">Paid on</th>
+                          <th style="width:7%;" class="" scope="col">Received by</th>
+                          <th style="width:5%;" class="" scope="col">receipt</th>
+                    </thead>
+                    <tbody>
+                        <div class="transactions-for row">
+
+                            <div class="col-12 term-balance yy">
+                                <span>Tuition Balance: <span class="groceries-balance">${{tuition_balance_term_2_2022}}</span></span> |
+                                <span>Bus levy Balance: <span class="groceries-balance">${{bus_levy_balance_term_2_2022}}</span></span> |
+                                {% if get_user.profile.level.clusterlevel.slug == "pre-school" %}
+                                <span>Groceries Balance: <span class="groceries-balance">${{groceries_balance_term_2_2022}}</span></span> |
+                                {% endif %}
+                                {% if get_clearance_for_term_2_2022.cleared %}
+                                <span>Status: <span class="groceries-balance">Cleared</span></span>
+                                {% else %}
+                                <span>Status: <span class="groceries-balance">Not Cleared</span></span>
+                                {% endif %}
+                            </div>
+                        </div>
+                {% for item in all_term_2_payments %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{item.client_name}},  {{item.phone_number}} | ({{item.address}})</td>
+                        <td>{{item.actual_amount_paid}}</td>
+                        <td>{{item.amount_paid}}</td>
+                        <td>{{item.particular}}</td>
+                        <td>{{item.currency}}</td>
+                        <td>{{item.term}}</td>
+                        <td>{{item.month}}</td>
+                        <td>{{item.created_on}}</td>
+                        <td>{{item.cashier.first_name}} {{item.cashier.last_name}}</td>
+                        <td>
+                            <a href="{% url 'pay:pdf_download' item.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for item in all_term_2_payments %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{item.client_name}},  {{item.phone_number}} | ({{item.address}})</td>
+                        <td>{{item.amount_paid}}</td>
+                        <td>{{item.particular}}</td>
+                        <td>{{item.currency}}</td>
+                        <td>{{item.created_on}}</td>
+                        <td>
+                            <a href="{% url 'pay:pdf_download' item.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <br>
+
+                </tbody>
+          </table>
+          {% if get_clearance_for_term_2_2022 %}
+          <div class="clear-button">
+              <a href="{% url 'pay:clear_student' get_clearance_for_term_2_2022.id %}">
+                  {% if get_clearance_for_term_2_2022.cleared  %}
+                  Unclear Student
+                  {% else %}
+                  Clear Student
+                  {% endif %}
+              </a>
+          </div>
+          {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "all-bases/main-base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'about/css/pricing.css' %}"/>
+
+{% endblock %}
+
+{% block title %}
+Health Services | SoloClip
+{% endblock %}
+
+{% block body %}
+    {% include "all-bases/fixed-nav-strip.html" %}
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+
+    <div class="text-center">
+        <h1>Coming soon, watch the space. Contact us if you want to engage us about any health service partnerships or enquiries.</h1>
+    </div>
+    {% include "all-bases/all-services-cards.html" %}
+
+
+
+
+    {% include "all-bases/large-footer.html" %}
+{% endblock %}

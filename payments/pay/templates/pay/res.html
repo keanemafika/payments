@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr"/>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no %}"/>
+        <meta charset="utf-8 %}"/>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap.min.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.min.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reboot.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reebot.min.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/new.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/select2.min.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/select2.css' %}"/>
+          <link rel="stylesheet" href="{% static 'pay/css/invoice.css' %}"/>
+
+          {% block head %}
+          {% endblock %}
+
+          <style media="screen">
+            @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+
+            body {
+                 font-family: 'Titillium Web', sans-serif;
+            }
+
+            </style>
+    </head>
+    <body>
+        <!-- Image and text -->
+        <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'pay\img\fx.png'%}"  height="30" class="d-inline-block align-top" alt="">
+                </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pay:make_payment' %}">Make Payment</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Make Sale</a>
+                		    <ul class="dropdown-menu">
+                			  <li><a class="dropdown-item" href="{% url 'pay:all_products' %}"> Make Sale</a></li>
+                			  <li><a class="dropdown-item" href=""> View Sales</a></li>
+                		    </ul>
+                		</li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pay:all_transactions' %}">View Payments</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pay:check_status' %}">Student status</a>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <div class="navbar-collapse collapse order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item payment-button">
+                            <a type="button" role="button" href="{% url "basket:basket_summary" %}"
+                          class="btn ">
+
+                          {% with total_qty=basket|length %}
+                              <div id="basket-qty" class="d-inline-flex">
+                                  {% if total_qty > 0 %}
+                                      {{ total_qty }}
+                                  {% else %}
+                                      0
+                                  {% endif %}
+                              </div>
+                          {% endwith %}
+
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-cart3" viewBox="0 0 16 16">
+                              <path
+                                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                          </svg>
+                          Payment Cart
+                      </a>
+                        </li>
+                    </ul>
+                </div>
+                </nav>
+        <div class="home-container container">
+            {% block body %}
+            {% endblock %}
+        </div>
+        <script src="{% static 'pay/js/jquery-3.6.0.js' %}"></script>
+        <script src="{% static 'pay/js/select2.js' %}"></script>
+        <script src="{% static 'pay/js/select2.min.js' %}"></script>
+        <script src="{% static 'pay/js/select2.full.js' %}"></script>
+        <script src="{% static 'pay/js/select2.full.min.js' %}"></script>
+        <script >
+            // In your Javascript (external .js resource or <script> tag)
+            $(document).ready(function() {
+                $('#id_user').select2();
+                $('#id_term').select2();
+            });
+        </script>
+        {% block js %}
+
+        {% endblock %}
+    </body>
+</html>

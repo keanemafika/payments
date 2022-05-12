@@ -1,0 +1,442 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <!-- Site Metas -->
+    <title>WASC Group of Schools</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/bootstrap.min.css' %}"/>
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'contact/style.css' %}"/>
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/versions.css' %}"/>
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/responsive.css' %}"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/custom.css' %}"/>
+    <style media="screen">
+         #back-bg-transparent {
+            background-color: rgba(0, 0, 0, .4);
+            border-radius: 6px;
+            padding-left: 10px;
+            padding-right: 20px;
+        }
+        #contact-header {
+            color: #ffd000;
+        }
+
+        .all-title-box{
+        	background: url(/static/contact/images/banner-pre-school.jpg)no-repeat;
+        	-webkit-background-size: cover;
+        	-moz-background-size: cover;
+        	-o-background-size: cover;
+        	background-size: cover;
+        	background-position: center;
+        	min-height: 300px;
+        }
+
+    </style>
+
+    <!-- Modernizer for Portfolio -->
+    <script src="js/modernizer.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="host_version">
+
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header tit-up">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Customer Login</h4>
+			</div>
+			<div class="modal-body customer-box">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+					<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="Login">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email1" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+										Submit
+									</button>
+									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="tab-pane" id="Registration">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="password" placeholder="Password" type="password">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10">
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Save &amp; Continue
+									</button>
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+
+    <!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END LOADER -->
+
+    <!-- Start header -->
+       {% include "contact/nav.html" %}
+    <!-- End header -->
+
+
+
+    <div class="all-title-box" >
+        <div class="container text-center" >
+            <h1 >
+                <span id="">
+                    <span id="contact-header">Pre-School</span>
+                    <span class="m_1" id="back-bg-transparent">Get your
+                        child started with a solid foundation at our Pre-School.</span>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 offset-md-2">
+                    <p class="lead">
+                        The pre-school falls under the WASC Group of Schools (WASC). The school was established in 2014 as an ECD Center IN Bulawayo
+                        and is located at No. 17 Jason Moto Street, Between 1st and Connaught Av, Bulawayo.
+                    </p>
+                </div>
+            </div><!-- end title -->
+
+            <hr class="invis">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/maths.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Maths</a></h2>
+							</div>
+							<div class="course-desc">
+								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/blog_2.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">English</a></h2>
+							</div>
+							<div class="blog-desc">
+								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+
+				<div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/blog_3.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">IsiNdebele</a></h2>
+							</div>
+							<div class="course-desc">
+								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+
+				<div class="col-lg-3 col-md-6 col-12">
+                   <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/agri.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Agriculure</a></h2>
+							</div>
+							<div class="course-desc">
+								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+
+			<hr class="hr3">
+
+            <div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+                   <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/PE.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Physical Eduucation</a></h2>
+							</div>
+							<div class="course-desc">
+								<p>Lorem ipsum door sit amet, fugiat deicata avise id cum, no quo maiorum intel ogrets geuiat operts elicata libere avisse id cumlegebat, liber regione eu sit.... </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+
+				<div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/computers.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Computer Literacy</a></h2>
+							</div>
+							<div class="blog-desc">
+								<p>
+                                    We help children attain knowledge
+                                     and ability to use computers and related technology
+                                     efficiently, with skill levels ranging from elementary
+                                     use to advanced use.
+                                </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+				<div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/sport.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Sports</a></h2>
+							</div>
+							<div class="blog-desc">
+								<p>
+                                    <ul>
+                                        <li>Soccer</li>
+                                        <li>Swimming</li>
+                                        <li>Athletics</li>
+                                        <li>Cricket</li>
+                                        <li>Cricket</li>
+                                    </ul>
+                                 </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+				<div class="col-lg-3 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="image-blog">
+							<img src="{% static 'contact/images/club.jpg' %}" alt="" class="img-fluid">
+						</div>
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="#" title="">Clubs</a></h2>
+							</div>
+							<div class="blog-desc">
+                                <p>
+                                    <ul>
+                                        <li>Chess</li>
+                                    <li>Book Club</li>
+                                    <li>Computer Club</li>
+                                    <li>Computer Club</li>
+                                    <li>Computer Club</li>
+                                    </ul>
+                            </p>
+							</div>
+
+						</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+								<li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+								<li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+							</ul>
+						</div>
+					</div>
+                </div><!-- end col -->
+
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <!-- <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Start header -->
+       {% include "contact/footer.html" %}
+    <!-- End header -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'contact/js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'contact/js/custom.js' %}"></script>
+
+</body>
+</html>

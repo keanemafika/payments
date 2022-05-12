@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>My Profile | {{user.profile.first_name }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'account/css/accounts.css' %}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style media="screen">
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+
+        /*--------------------*/
+        /* 02. Common CSS */
+        /*--------------------*/
+
+
+        body {
+        font-family: 'Titillium Web', sans-serif;
+    }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md sticky-top navv-strip">
+            <div class="container">
+                <a class="navbar-brand mb-1 flex-grow-0" href="/"> JPM<span class="d-none d-md-inline ml-4">|</span>
+                </a>
+                <!-- links toggle -->
+                <button class="navbar-toggler border-0 order-first" type="button" data-toggle="collapse" data-target="#links,.navbar-collapse.show" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!-- account toggle -->
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#account,.navbar-collapse.show" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-user"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-start" style="flex-grow: 1;" id="links">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        {% if user.profile.is_teacher == True %}
+                            <a class="nav-link" href="#">Dashboard</a>
+                            {% else %}
+                            <a class="nav-link" href="#">Dashboard</a>
+                            {% endif %}
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/abo">Help</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" style="flex-grow: 0;" id="account">
+                    <ul class="navbar-nav justify-content-end text-right">
+                        <li class="nav-item">
+                            <a class="btn btn-primary my-md-0 my-2" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="profile-container container">
+            <div class="row profile">
+        		<div class="col-md-3 left-bar">
+        			<div class="text-center col-12 user-pic">
+                        <img src="{{user.profile.avatar.url}}" alt="Avatar" class="avatar">
+                    </div>
+                    <div class=" text-center">
+                        <h3>{{user.profile.first_name}} {{user.profile.last_name}}</h3>
+                    </div>
+                    <div class="col-12 divides">
+                        <div class="col-12">
+                            {{user.profile.address}}
+                        </div>
+                    </div>
+                    <div class="col-12 divides">
+                        <div class="col-12">
+                            {{user.profile.dob}}
+                        </div>
+                    </div><hr>
+                    <div class="row col-12 buttons">
+                        <div class="col-6">
+                            <button type="button" class=""><a href="{% url 'hello:edit_profile_page' user.profile.id %}">Edit Profile</a></button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class=""><a href="{% url 'account_logout' %}">Sign Out</a></button>
+                        </div>
+                    </div><hr>
+
+
+                    </div>
+        		<div class="right-bar col-md-9">
+
+                    <div class="text-center row col-12">
+
+                            <div class="col-3 announcements  ann-ass-res-btns">
+                                 <a href="{% url 'lms:course_announcements' %}">
+                                     <div class="inner-btn">
+                                         Announcements
+                                     </div>
+                                 </a>
+                            </div>
+                            <div class="col-3 assignments ann-ass-res-btns">
+                                 <a href="{% url 'lms:all_assignments' %}">
+                                     <div class="inner-btn">
+                                         Assignments
+                                     </div>
+                                 </a>
+                            </div>
+                            <div class="col-3 results ann-ass-res-btns">
+                                {% if user.profile.is_teacher == True %}
+                                <a href="#">
+                                    <div class="inner-btn">
+                                        My Classroom
+                                    </div>
+                                </a>
+                                {% else %}
+                                <a href="{% url 'lms:student_result' %}">
+                                    <div class="inner-btn">
+                                        Results
+                                    </div>
+                                </a>
+                                {% endif%}
+                            </div>
+                            <div class="col-3 assignments ann-ass-res-btns">
+                                 <a href="#">
+                                     <div class="inner-btn">
+                                         Fees
+                                     </div>
+                                 </a>
+                            </div>
+                    </div><hr>
+                    <div class="row ">
+                        {% if messages %}
+                            {%for message in messages%}
+                                <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">{{message}}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+                            {%endfor%}
+                        {% endif %}
+                        <div class="col-12">
+                            <div class="help">
+                                Please <a href="{% url 'contact:contact'%}">contact</a> us if you are facing any challenges <a href="{% url 'contact:contact'%}">| Help Center</a>
+                            </div>
+                        </div>
+                    </div>
+        		</div>
+        	</div>
+        </div>
+    </body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>

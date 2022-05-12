@@ -1,0 +1,188 @@
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no %}"/>
+    <meta charset="utf-8 %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/invoice.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-grid.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reboot.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/bootstrap-reebot.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/new.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/select2.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'pay/css/select2.css' %}"/>
+<style>
+
+    @page {
+        size: a4 portrait;
+        padding: 20px;
+    }
+
+    .receipt-no {
+        color:red;
+        font-weight: bold;
+        font-size: 25px;
+        font-family: Times New Roman;
+    }
+    .date {
+        text-align:right;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+}
+
+body {
+    font-size: 14px;
+}
+
+.payment-details, .header, .customer-row td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+hr {
+    padding: 0px;
+    margin: 0px;
+}
+.date-row {
+    background-color: #b8d3ff;
+}
+.total-name, .total-amount {
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 30px;
+}
+.top-address {
+    font-size: 15px;
+}
+.header-table, .customer-table {
+    margin-bottom: 15px;
+}
+.customer-row {
+    font-size: 20px;
+}
+
+.Payment-details-title {
+    font-size: 20px;
+    background-color: #b8d3ff;
+    font-weight: bold;
+}
+
+.balance-due {
+    font-size: 18px;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #b8d3ff;
+   text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="row header">
+        <table class="header-table">
+          <tr>
+            <td style="width:60%"> <h1>WASC GROUP OF SCHOOLS<br>RECEIPT</h1> </td>
+            <td class="date top-address">17 J. Moyo St.<br>
+            Between 1st and Connaught Av.<br>
+            Bulawayo<hr color="#b8d3ff">
+            Tel: (0292)888195<br>
+            Cell: 0777852719<br>
+            Email: help@wascgos.com<br>
+            website: www.wascgos.com<br>
+        </td>
+          </tr>
+
+        </table>
+    </div>
+    <hr>
+    <div class="row date-row">
+        <table class="row date-row date-receipt-table">
+          <tr>
+            <th class="">RECEIPT No: <span class="receipt-no">0000{{sale.id}}</span> </th>
+            <td class="date">{{sale.created_on}}</td>
+          </tr>
+        </table>
+    </div><br>
+    <div class="row payment-details">
+            <span class="Payment-details-title">Received From</span>
+            <table class="row payment-details-table">
+              <tr>
+                <th style="width:60%">Name: {{sale.client_name}}<br>Phone No.: 0{{sale.phone_number}}</th>
+                <th >Address: <br>{{sale.address}}</th>
+              </tr>
+
+            </table>
+    </div><br>
+    <div class="row payment-details">
+            <span class="Payment-details-title">Student</span>
+            <table class="row payment-details-table">
+              <tr>
+                <th style="width:60%">Student Name:</th>
+                <th >{{sale.user.profile.first_name}}
+                {{sale.user.profile.last_name}} ({{sale.user.username}})</th>
+              </tr>
+              <tr>
+                <td>Class/level</td>
+                <td>{{sale.user.profile.classroom.title}}</td>
+              </tr>
+
+            </table>
+    </div><br>
+    <div class="row payment-details">
+            <span class="Payment-details-title">Payment Details</span>
+            <table class="row payment-details-table">
+              <tr>
+                <th style="width:60%">Particular</th>
+                <th >Term</th>
+                <th class="date">Amount({{sale.currency}})</th>
+              </tr>
+              <tr>
+                <td>{{sale.particular}}</td>
+                <td>{{sale.term.title}} ({{sale.term.year.title}})</td>
+                <td class="date">${{sale.amount_paid}}.00</td>
+              </tr>
+
+              <tr>
+                <td class="total-name" colspan="2">Total</td>
+                <td class="total-amount">${{sale.amount_paid}}.00</td>
+              </tr>
+            </table>
+    </div>
+    <br>
+    <div class="row">
+        <table class="balance">
+          <tr>
+            <th style="width:40%">Balance</th>
+            <th >Tuition: $232</th>
+            <th class="date">Groceries: $232</th>
+            <th class="date">Total Balance: $232</th>
+          </tr>
+        </table>
+    </div><br>
+    <div class="footer row">
+        Thank you for your payment!!
+    </div>
+
+</body>
+</html>

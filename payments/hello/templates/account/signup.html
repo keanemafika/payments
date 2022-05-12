@@ -1,0 +1,43 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+
+{% endblock %}
+
+
+{% load i18n %}
+
+
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block info %}
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+{% endblock %}
+
+
+{% block form_header %}
+Sign up for a JPM Family Churches account
+{% endblock %}
+
+
+{% block form %}
+<form name="loginForm" class="loginForm signup" id="signup_form" action="{% url 'account_signup' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <div class="col-12">
+      <p class="privacy-policy">
+        By clicking sign up you agree to JPM Family Churches' privacy policy, Terms and Conditions of use. For more information about these <a href="{% url 'contact:contact' %}">click here</a>
+      </p>
+    </div>
+  <!-- start remember-row -->
+  <div class="form-group">
+    <button class="" target="_blank" type="submit">{% trans "Sign Up" %} &raquo;</button>
+  </div>
+
+</form>
+{% endblock %}

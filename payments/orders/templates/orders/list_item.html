@@ -1,0 +1,106 @@
+
+{% extends "pay/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+Sales list
+{% endblock %}
+
+
+{% block style %}
+body{
+	background-color: #e7e7e7!important;
+}
+
+.main-container{
+	width: 85%;
+	margin: auto;
+}
+{% endblock %}
+
+
+{% block head %}
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class='main-container'>
+
+    <div class="myForm">
+     <form method='POST' action=''>{% csrf_token %}
+       <div class="row">
+             <div class="form-group col-5">
+               {{ form.invoice_number|as_crispy_field }}
+             </div>
+             <div class="form-group col-5">
+               {{ form.name|as_crispy_field }}
+             </div>
+             <div class="form-group col-2">
+               <br>
+               <button type="submit" class="btn btn-primary">Search</button>
+             </div>
+         </div>
+     </form>
+   </div>
+
+
+   <div class="">
+   <div>
+     <div>
+       <span class="text-muted">Recent invoices</span>
+       <span class="badge badge-secondary badge-pill">{{total_invoices}}</span>
+     </div>
+     {% for instance in queryset %}
+     <ul class="list-group mb-3">
+       <li class="list-group-item d-flex justify-content-between lh-condensed">
+         <div>
+           <h6 class="my-0">{{instance.name}}<a href="{{instance.get_absolute_url}}">dd</a></h6><br>
+           <small class="text-muted">{{instance.invoice_date}}</small><br>
+         </div>
+		 <div class="text-muted">
+			 {% if instance.currency == 'USD' %}${% endif %}
+ 			{% if instance.currency == 'Rand' %}R{% endif %}
+ 			{% if instance.currency == 'RTGS' %}${% endif %}
+			 {{instance.total}}
+		 </div>
+         <div class="text-muted">
+			 <a href="{% url 'orders:pdf_download' instance.id %}">
+				 Download
+				 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+				   <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+				   <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+				 </svg>
+			 </a>
+		 </div>
+       </li>
+     </ul>
+     {% endfor %}
+   </div>
+</div>
+</div>
+<div class="row">
+    {% if queryset.has_previous %}
+    <a href="{% url 'orders:list_invoice' %}?page={{queryset.previous_page_number}}">
+        <div class="col-6">
+            Previous Page
+        </div>
+    </a>
+    {% endif %}
+    {% if queryset.has_next %}
+    <a href="{% url 'orders:list_invoice' %}?page={{queryset.next_page_number}}">
+        <div class="col-6">
+            Next Page
+        </div>
+    </a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

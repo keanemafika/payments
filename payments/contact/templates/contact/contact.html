@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <!-- Site Metas -->
+    <title>WASC Group of Schools</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style media="screen">
+         #back-bg-transparent {
+            background-color: rgba(0, 0, 0, .4);
+            border-radius: 6px;
+            padding-left: 10px;
+            padding-right: 20px;
+        }
+        #contact-header {
+            color: #ffd000;
+        }
+
+        .all-title-box{
+        	background: url(/static/contact/images/banner.jpg)no-repeat;
+        	-webkit-background-size: cover;
+        	-moz-background-size: cover;
+        	-o-background-size: cover;
+        	background-size: cover;
+        	background-position: center;
+        	min-height: 300px;
+        }
+
+    </style>
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/bootstrap.min.css' %}"/>
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'contact/style.css' %}"/>
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/versions.css' %}"/>
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/responsive.css' %}"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'contact/css/custom.css' %}"/>
+
+    <!-- Modernizer for Portfolio -->
+    <script src="{% static 'contact/js/modernizer.js' %}"></script>
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="host_version">
+
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header tit-up">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Customer Login</h4>
+			</div>
+			<div class="modal-body customer-box">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+					<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="Login">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email1" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+										Submit
+									</button>
+									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="tab-pane" id="Registration">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="password" placeholder="Password" type="password">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10">
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Save &amp; Continue
+									</button>
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END LOADER -->
+
+    <!-- Start header -->
+       {% include "contact/nav.html" %}
+    <!-- End header -->
+
+	<div class="all-title-box" >
+		<div class="container text-center" >
+			<h1 >
+                <span id="">
+                    <span id="contact-header">Contact Us.</span>
+                    {%if messages%}
+                        {%for message in messages%}
+                            <div style="padding:2px;" class="alert text-center alert-success alert-dismissible fade show mt-4" role="alert">{{message|safe}}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+                        {%endfor%}
+                    {%else%}
+                    <span class="m_1" id="back-bg-transparent">
+
+
+                            Get in touch with WASC.
+
+                    </span>
+                    {%endif%}
+                </span>
+            </h1>
+		</div>
+	</div>
+
+    <div id="contact" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Need Help? Sure we are Online!</h3>
+                <p class="lead">Let us give you more details about the school. Please fill out the form below. <br>We have many clients who happy to work with us!</p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12">
+                    <div class="contact_form">
+                        <div id="message"></div>
+                        <form id="contactform" class="" name="contactform" method="post">
+                            {% csrf_token %}
+                            <div class="row row-fluid">
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input type="text" name="name" id="first_name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <input type="text" name="subject" id="last_name" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <textarea class="form-control" name="message" id="comments" rows="6" placeholder="Give us more details.."></textarea>
+                                </div>
+                                <div class="text-center pd">
+                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+				<div class="col-xl-6 col-md-12 col-sm-12">
+					<div class="map-box">
+						<div id="custom-places" class="small-map"></div>
+					</div>
+				</div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+	<!-- <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Start header -->
+       {% include "contact/footer.html" %}
+    <!-- End header -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'contact/js/all.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
+	<!-- Mapsed JavaScript -->
+	<script src="{% static 'contact/js/mapsed.js"></script>
+	<script src="{% static 'contact/js/01-custom-places-example.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'contact/js/custom.js' %}"></script>
+    <script src="{% static 'contact/js/modernizer.js' %}"></script>
+
+</body>
+</html>

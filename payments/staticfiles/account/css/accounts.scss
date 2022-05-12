@@ -1,0 +1,374 @@
+$dazzled-Blue: #2e5993;
+$Queen-Blue: #3676a4;
+$Pastel-Magenta: #f099c2;
+$orange: #F5BD1F;
+$darkpurp: #4d005e;
+$lightpurp: #c2028b;
+$lightpink: #ffb5ea;
+$navfontcolor: #fff;
+$link-blue: #00b4d8;
+
+
+body {
+     background-image: linear-gradient(to bottom right, $navfontcolor, #caf0f8);
+     background-repeat: no-repeat;
+     background-size: 100% 1500px;
+ a {
+     color: $link-blue;
+     font-weight: bold;
+ }
+ a:hover {
+     color: darken($link-blue, 20%);
+     font-weight: bolder;
+ }
+}
+.navbar {
+    .navbar-toggler {
+        color: $dazzled-Blue;
+    }
+}
+
+.errorlist, .nonfield {
+    color: red;
+}
+.form-cont {
+
+    .form-header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+
+    .privacy-policy {
+        color: $navfontcolor;
+        a {
+            color: $Pastel-Magenta;
+            font-weight: bold;
+        }
+        a:hover {
+            color: darken($Pastel-Magenta, 20%);
+            font-weight: bolder;
+        }
+    }
+    hr {
+        border: solid $Pastel-Magenta;
+    }
+
+    .contact-us {
+        margin-bottom: 50px;
+    }
+
+    .lnkz {
+        color: $Pastel-Magenta;
+        font-weight: bold;
+    }
+    .lnkz:hover {
+        color: darken($Pastel-Magenta, 20%);
+        font-weight: bolder;
+    }
+
+
+    .on-left {
+        background-color: $navfontcolor;
+        .all {
+                margin: 0px;
+                color: $dazzled-Blue;
+                padding: 12px;
+                margin-top: 5px;
+                text-align: center;
+                a {
+                    color: $Pastel-Magenta;
+                    font-weight: bold;
+                }
+                a:hover {
+                    color: darken($Pastel-Magenta, 20%);
+                    font-weight: bolder;
+                }
+        }
+
+    }
+    .form-bg {
+        background-color: $dazzled-Blue;
+    }
+
+    .ama-message {
+        color: red;
+    }
+
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+     form {
+      padding-bottom: 15px;
+      border-radius: 3px;
+      overflow: hidden;
+      width: 100%;
+      background-color: $dazzled-Blue;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 50px;
+      margin-top: 5px;
+    }
+
+    form button {
+        background-color: $orange;
+        width: 100%;
+        text-decoration: none;
+        border: none;
+        border-radius: 3px;
+        height: 38px;
+        color: $navfontcolor;
+        font-size: 20px;
+    }
+    form label {
+        color: $navfontcolor;
+    }
+
+    .form-bg h3 {
+      width: 100%;
+      background-color: $dazzled-Blue;
+      padding: 15px;
+      margin: 0px;
+      position: relative;
+      line-height: 30px;
+      border-bottom: solid 1px $Pastel-Magenta;
+      color: $navfontcolor;
+    }
+
+    label.checkbox-label input[type=checkbox]{
+        position: relative;
+        vertical-align: middle;
+        bottom: 1px;
+    }
+
+    form input[type=email],
+    form input[type=text],
+    form input[type=password] {
+     width: 100%;
+     height: 38px;
+     border-radius: 3px;
+     border: 0;
+     color: $dazzled-Blue;
+     font-size: 110%;
+     padding-left: 12px;
+     margin-top: 5px;
+     background-color: #f0f0f0;
+   }
+
+
+
+     form input[type=submit] {
+      background-color: #18B9E7;
+      color: #fff;
+      font-weight: 700;
+      font-size: 110%;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+    }
+
+    ::-webkit-input-placeholder {
+      text-transform: capitalize;
+    }
+
+    ::-moz-placeholder {
+      text-transform: capitalize;
+    }
+
+    :-moz-placeholder {
+      text-transform: capitalize;
+    }
+
+
+    form .back {
+        color: $navfontcolor;
+
+        a {
+            color: $orange;
+        }
+        a:hover {
+            color: $Queen-Blue;
+        }
+    }
+
+    .sign-out-button {
+        margin-top: 15px;
+    }
+
+    /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    @media only screen and (max-width: 768px) {
+        label[for="id_login"], label[for="id_password"],label[for="id_password2"],label[for="id_password1"],
+        label[for="id_email"], label[for="id_username"], label[for="id_oldpassword"], label[for="password_set"]
+        label[for="set_password"]
+          {
+            display: none;
+        }
+
+        .all,  {
+            font-size: 12px;
+        }
+
+      .form:first-of-type {
+        margin: 100px auto;
+      }
+
+      .form:last-of-type {
+        margin: 100px auto;
+      }
+
+      form input[type=email],
+      form input[type=text],
+      form input[type=password] {
+        display: block;
+        width: 100%;
+        height: 50px;
+        padding-top: 5px;
+        margin: 15px auto;
+        border-radius: 3px;
+        border: 0;
+        color: #333;
+        font-size: 110%;
+        align: center;
+      }
+    }
+}
+
+
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .form-cont {
+        margin-top: 0px;
+    }
+    div.base {
+    display: none;
+  }
+
+  .learn-pic {
+      display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .form-cont {
+        margin-top: 0px;
+    }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .form-cont {
+    margin-top: 110px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .form-cont {
+    margin-top: 110px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .form-cont {
+    margin-top: 110px;
+    }
+}
+
+/*--------------------*/
+/* Profile page */
+/*--------------------*/
+
+
+/*--------------------*/
+/* 02. Common CSS */
+/*--------------------*/
+
+.profile-container {
+
+    background-color: $navfontcolor;
+    margin-top: 40px;
+
+    .user-pic {
+        padding: 5px;
+    }
+
+    .bio {
+        padding-left: 5px;
+    }
+    .avatar {
+      vertical-align: middle;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+    }
+
+    .left-bar {
+        background-color: $dazzled-Blue;
+        color: $navfontcolor;
+        text-align: center;
+
+        button {
+            background-color: $link-blue;
+            color: $navfontcolor;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            height: 4rem;
+            width: 100%;
+            text-align: center;
+
+            a {
+                color:$navfontcolor;
+            }
+        }
+    }
+
+    .right-bar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: $dazzled-Blue;
+
+        .inner-btn {
+            padding: 5px;
+            border-radius: 5px;
+                color: $lightpink;
+        }
+        .inner-btn:hover {
+            color: lighten($lightpink, 10%);
+        }
+
+        .announcements  {
+            background-color: $dazzled-Blue;
+        }
+        .assignments  {
+            background-color: $Queen-Blue;
+            color: $dazzled-Blue;
+        }
+        .results  {
+            background-color: $dazzled-Blue;
+        }
+    }
+    hr {
+        background-color: $dazzled-Blue;
+    }
+
+}

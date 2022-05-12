@@ -1,0 +1,57 @@
+
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+WASC PAYMENT HOME
+{% endblock %}
+
+
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+{% if user.is_authenticated %}
+<div class="index-container">
+    <h2>Latest Transactions</h2> <br>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Particular</th>
+        <th>Currency</th>
+        <th>Made by</th>
+        <th>Made on</th>
+      </tr>
+      {% for item in individualpayment %}
+      <tr>
+        <td><a href="{% url 'pay:print_receipt' item.id %}">{{item.profile.first_name}} {{item.profile.last_name}} ({{item.profile.user.username}})</a></td>
+        <td>{{item.amount_paid}}</td>
+        <td>{{item.particular}}</td>
+        <td>{{item.currency}}</td>
+        <td>{{item.client_name}}, {{item.phone_number}}</td>
+        <td>{{item.created_on}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div class="container view-all">
+        <div class="row">
+            <div class="col-12">
+                <a class="btn btn-info"  href="{% url 'pay:all_transactions' %}">View All Transactions</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<a href="">Login</a>
+{% endif %}
+{% endblock %}

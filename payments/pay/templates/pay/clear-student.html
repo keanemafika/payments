@@ -1,0 +1,36 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<div class="container clear-student">
+        <form class="" method="post">
+            {% csrf_token %}
+            <h1>Are you Sure You want to {% if clearanceforstudent.cleared %}
+            unclear
+            {% else %}
+            clear
+            {% endif %} this student??</h1> <br>
+            <h2 class="name">
+                {{clearanceforstudent.profile.first_name}} {{clearanceforstudent.profile.last_name}} ({{clearanceforstudent.profile.user}})
+                {{clearanceforstudent.term}}
+             </h2>
+             <label for="cleared">
+                 {% if clearanceforstudent.cleared %}
+                 Untick box to clear student
+                 {% else %}
+                 Tick box to clear student
+                 {% endif %}
+             </label>
+             {{form.cleared}}<br>
+             <button type="submit" name="button">Clear Student</button>
+        </form>
+</div>
+{% endblock %}

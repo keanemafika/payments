@@ -1,0 +1,72 @@
+
+
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Make Payment
+{% endblock %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+
+<div class="make-payment-container">
+    <form class="" action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <div class="confirm-payment">
+            <div class="row col">
+                <div class="col-6">
+                    Payment Made by: {{individualpayment.client_name}}
+                </div>
+                <div class="col-6">
+                    For: {{individualpayment.profile.user}}, Name: {{individualpayment.profile.first_name}} {{individualpayment.profile.first_name}} ({{individualpayment.profile.classroom.title}})
+                </div>
+            </div>
+            <hr>
+            <div class="row col">
+                <div class="col-3 ">
+                    Amount Paid: {{individualpayment.amount_paid}}
+                </div>
+                <div class="col-3 border-left">
+                    Particular: {{individualpayment.particular}}
+                </div>
+                <div class="col-3 border-left">
+                    Currency: {{individualpayment.currency}}
+                </div>
+                <div class="col-3 border-left">
+                    Term: {{individualpayment.term}}
+                </div>
+            </div>
+            <hr>
+            <div class="row col ">
+                <div class="col-6">
+                    Address: {{individualpayment.address}}
+                </div>
+                <div class="col-6 border-left">
+                    Contact: {{individualpayment.phone_number}}
+                </div>
+            </div>
+            <hr>
+            <div class="row col">
+                <div class="col-xs-4 col-lg-4">
+                    <button class="confirm-btn" type="submit" name="button">Confirm Payment</button>
+                </div>
+                <div class="col-xs-4 col-lg-4 border-left">
+                    <button type="" name=""><a href="{% url 'pay:edit_payment' individualpayment.id %}">Edit Payment</a></button>
+                </div>
+                <div class="col-xs-4 col-lg-4 border-left">
+                    <button class="cancel-btn" type="" name=""><a href="{% url 'pay:delete_payment' individualpayment.id %}">Cancel Payment</a></button>
+                </div>
+            </div>
+        </div>
+</form>
+</div>
+
+
+
+{% endblock %}

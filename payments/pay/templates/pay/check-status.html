@@ -1,0 +1,23 @@
+{% extends "pay/base.html" %}
+{% load static %}
+
+{% block title %}
+Check Status
+{% endblock %}
+
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="check-status-container">
+    <div class="classessss">
+        <h2>Classes:</h2><br>
+        {% for class in classroom_statuses %}
+            <a href="{{class.get_absolute_url}}">{{class.title}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

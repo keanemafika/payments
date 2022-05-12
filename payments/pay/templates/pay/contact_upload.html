@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <style media="screen">
+      @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+
+      body {
+           font-family: 'Titillium Web', sans-serif;
+           text-align: center;
+           margin-top: 20px;
+      }
+      strong {
+          color: red;
+      }
+
+      </style>
+        <title></title>
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="">
+                    <strong>{{message|safe}}</strong>
+                </div>
+            {% endfor %}
+        {% else %}
+        {% endif %}
+        {{order}}
+        <div class="container">
+            <form class="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="">Upload the CSV</label><br>
+                <input type="file" name="file" value=""><br><br>
+                <button type="submit" name="button">Upload Now to add</button>
+            </form>
+        </div>
+    </body>
+</html>

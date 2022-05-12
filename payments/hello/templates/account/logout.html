@@ -1,0 +1,34 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+
+{% load i18n %}
+
+{% block head_title %}WASC | {% trans "Sign Out" %}{% endblock %}
+
+{% block form_header %}
+{% trans "Sign Out" %}
+{% endblock %}
+
+
+
+
+
+
+
+{% block form %}
+<p class="text-center">{% trans 'Are you sure you want to sign out ' %}{% if user.is_authenticated %}{{ user.username }}{% endif %}?</p>
+<br>
+
+<form name="loginForm" class="loginForm"  action="{% url 'account_logout' %}" method="POST">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+      <input class="" target="_blank" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+      <button class="sign-out-button" target="_blank" type="submit">{% trans 'Sign Out' %} &raquo;</button>
+    <br>
+    <br>
+    <p class="text-center back">{% blocktrans %}Go back <a href="/">Home</a>.{% endblocktrans %}</p>
+    <p class="text-center"></p>
+</form>
+{% endblock %}

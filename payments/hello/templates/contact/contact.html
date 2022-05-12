@@ -1,0 +1,112 @@
+{% extends "all-bases/contact-base.html" %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'about/css/contact.css' %}"/>
+{% endblock %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block script %}
+<!-- Script for dependent dropdown -->
+<script>
+    var subjectObject = {
+      "Web-Services": {
+        "Websites": ["General", "Pricing", "Functionality", "Hosting"],
+        "Databases": ["General", "MySQL", "PostGIS", "Postgres"],
+        "e-Commerce": ["General", "MySQL", "PostGIS", "Postgres"],
+        "Learning Management Systems(LMS)": ["General", "MySQL", "PostGIS", "Postgres"],
+        "Online learning Portals": ["General", "MySQL", "PostGIS", "Postgres"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+        // "Domains": [".com", ".co.zw", "General"]
+      },
+      "GIS": {
+        "Maps": ["Variables", "Strings", "Arrays"],
+        "Data Capture": ["SELECT", "UPDATE", "DELETE"],
+        "Geocoding/Processing": ["SELECT", "UPDATE", "DELETE"],
+        "GIS Implementation": ["SELECT", "UPDATE", "DELETE"],
+        "GIS database design": ["SELECT", "UPDATE", "DELETE"],
+        "GIS consulting": ["SELECT", "UPDATE", "DELETE"],
+        "3D GIS modeling": ["SELECT", "UPDATE", "DELETE"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+    },
+      "Graphic Design": {
+        "Logo": ["Variables", "Strings", "Arrays"],
+        "Poster": ["SELECT", "UPDATE", "DELETE"],
+        "Catalogue": ["SELECT", "UPDATE", "DELETE"],
+        "Animation": ["SELECT", "UPDATE", "DELETE"],
+        "Illustrations": ["SELECT", "UPDATE", "DELETE"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+    },
+      "Health": {
+        "Epidemiological data": ["Variables", "Strings", "Arrays"],
+        "Viac Screening": ["SELECT", "UPDATE", "DELETE"],
+        "Covid-19 Statistics": ["SELECT", "UPDATE", "DELETE"],
+        "Safety, Health and Environment(SHE)": ["SELECT", "UPDATE", "DELETE"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+    },
+      "Company Registration": {
+        "PBc": ["Variables", "Strings", "Arrays"],
+        "PLC": ["SELECT", "UPDATE", "DELETE"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+    },
+      "Business": {
+        "Branding": ["Variables", "Strings", "Arrays"],
+        "Tax Clearance": ["SELECT", "UPDATE", "DELETE"],
+        "Social Media Marketing": ["SELECT", "UPDATE", "DELETE"],
+        "Business Plans": ["SELECT", "UPDATE", "DELETE"],
+        "Other": ["SELECT", "UPDATE", "DELETE"],
+    },
+    }
+    window.onload = function() {
+      var subjectSel = document.getElementById("subject");
+      var topicSel = document.getElementById("topic");
+      var chapterSel = document.getElementById("chapter");
+      for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+      }
+      subjectSel.onchange = function() {
+        //empty Chapters- and Topics- dropdowns
+        chapterSel.length = 1;
+        topicSel.length = 1;
+        //display correct values
+        for (var y in subjectObject[this.value]) {
+          topicSel.options[topicSel.options.length] = new Option(y, y);
+        }
+      }
+      topicSel.onchange = function() {
+        //empty Chapters dropdown
+        chapterSel.length = 1;
+        //display correct values
+        var z = subjectObject[subjectSel.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+          chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
+        {% block select_input %}
+
+        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+            <select name="subject" id="subject" required>
+                <option value="" selected="selected">Select Service</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+            <select name="feature" id="topic">
+                <option value="" selected="selected">Feature(select service first)</option>
+            </select>
+        </div>
+        <!-- last dropdown is 'd-noned to make invisible but is functional for future use' -->
+        <div class="form-group col-md-6 col-sm-6 co-xs-12 d-none">
+            <select name="chapter" id="chapter">
+                <option value="" selected="selected">Please select topic first</option>
+            </select>
+        </div>
+
+        {% endblock %}
